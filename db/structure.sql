@@ -1,10 +1,3 @@
---
--- PostgreSQL database dump
---
-
--- Dumped from database version 16.4 (Homebrew)
--- Dumped by pg_dump version 16.4 (Homebrew)
-
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
@@ -21,7 +14,19 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: artist; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.ar_internal_metadata (
+    key character varying NOT NULL,
+    value character varying,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: artist; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.artist (
@@ -33,10 +38,8 @@ CREATE TABLE public.artist (
 );
 
 
-ALTER TABLE public.artist OWNER TO denvermullets;
-
 --
--- Name: artist_alias; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: artist_alias; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.artist_alias (
@@ -46,10 +49,8 @@ CREATE TABLE public.artist_alias (
 );
 
 
-ALTER TABLE public.artist_alias OWNER TO denvermullets;
-
 --
--- Name: artist_image; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: artist_image; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.artist_image (
@@ -60,10 +61,8 @@ CREATE TABLE public.artist_image (
 );
 
 
-ALTER TABLE public.artist_image OWNER TO denvermullets;
-
 --
--- Name: artist_namevariation; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: artist_namevariation; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.artist_namevariation (
@@ -73,10 +72,8 @@ CREATE TABLE public.artist_namevariation (
 );
 
 
-ALTER TABLE public.artist_namevariation OWNER TO denvermullets;
-
 --
--- Name: artist_namevariation_id_seq; Type: SEQUENCE; Schema: public; Owner: denvermullets
+-- Name: artist_namevariation_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.artist_namevariation_id_seq
@@ -88,17 +85,15 @@ CREATE SEQUENCE public.artist_namevariation_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.artist_namevariation_id_seq OWNER TO denvermullets;
-
 --
--- Name: artist_namevariation_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: denvermullets
+-- Name: artist_namevariation_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.artist_namevariation_id_seq OWNED BY public.artist_namevariation.id;
 
 
 --
--- Name: artist_url; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: artist_url; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.artist_url (
@@ -108,10 +103,8 @@ CREATE TABLE public.artist_url (
 );
 
 
-ALTER TABLE public.artist_url OWNER TO denvermullets;
-
 --
--- Name: artist_url_id_seq; Type: SEQUENCE; Schema: public; Owner: denvermullets
+-- Name: artist_url_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.artist_url_id_seq
@@ -123,17 +116,15 @@ CREATE SEQUENCE public.artist_url_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.artist_url_id_seq OWNER TO denvermullets;
-
 --
--- Name: artist_url_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: denvermullets
+-- Name: artist_url_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.artist_url_id_seq OWNED BY public.artist_url.id;
 
 
 --
--- Name: group_member; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: group_member; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.group_member (
@@ -143,10 +134,8 @@ CREATE TABLE public.group_member (
 );
 
 
-ALTER TABLE public.group_member OWNER TO denvermullets;
-
 --
--- Name: label; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: label; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.label (
@@ -160,10 +149,8 @@ CREATE TABLE public.label (
 );
 
 
-ALTER TABLE public.label OWNER TO denvermullets;
-
 --
--- Name: label_image; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: label_image; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.label_image (
@@ -174,10 +161,8 @@ CREATE TABLE public.label_image (
 );
 
 
-ALTER TABLE public.label_image OWNER TO denvermullets;
-
 --
--- Name: label_url; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: label_url; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.label_url (
@@ -187,10 +172,8 @@ CREATE TABLE public.label_url (
 );
 
 
-ALTER TABLE public.label_url OWNER TO denvermullets;
-
 --
--- Name: label_url_id_seq; Type: SEQUENCE; Schema: public; Owner: denvermullets
+-- Name: label_url_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.label_url_id_seq
@@ -202,17 +185,15 @@ CREATE SEQUENCE public.label_url_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.label_url_id_seq OWNER TO denvermullets;
-
 --
--- Name: label_url_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: denvermullets
+-- Name: label_url_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.label_url_id_seq OWNED BY public.label_url.id;
 
 
 --
--- Name: master; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: master; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.master (
@@ -224,10 +205,8 @@ CREATE TABLE public.master (
 );
 
 
-ALTER TABLE public.master OWNER TO denvermullets;
-
 --
--- Name: master_artist; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: master_artist; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.master_artist (
@@ -242,10 +221,8 @@ CREATE TABLE public.master_artist (
 );
 
 
-ALTER TABLE public.master_artist OWNER TO denvermullets;
-
 --
--- Name: master_artist_id_seq; Type: SEQUENCE; Schema: public; Owner: denvermullets
+-- Name: master_artist_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.master_artist_id_seq
@@ -257,17 +234,15 @@ CREATE SEQUENCE public.master_artist_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.master_artist_id_seq OWNER TO denvermullets;
-
 --
--- Name: master_artist_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: denvermullets
+-- Name: master_artist_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.master_artist_id_seq OWNED BY public.master_artist.id;
 
 
 --
--- Name: master_genre; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: master_genre; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.master_genre (
@@ -277,10 +252,8 @@ CREATE TABLE public.master_genre (
 );
 
 
-ALTER TABLE public.master_genre OWNER TO denvermullets;
-
 --
--- Name: master_genre_id_seq; Type: SEQUENCE; Schema: public; Owner: denvermullets
+-- Name: master_genre_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.master_genre_id_seq
@@ -292,17 +265,15 @@ CREATE SEQUENCE public.master_genre_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.master_genre_id_seq OWNER TO denvermullets;
-
 --
--- Name: master_genre_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: denvermullets
+-- Name: master_genre_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.master_genre_id_seq OWNED BY public.master_genre.id;
 
 
 --
--- Name: master_image; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: master_image; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.master_image (
@@ -313,10 +284,8 @@ CREATE TABLE public.master_image (
 );
 
 
-ALTER TABLE public.master_image OWNER TO denvermullets;
-
 --
--- Name: master_style; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: master_style; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.master_style (
@@ -326,10 +295,8 @@ CREATE TABLE public.master_style (
 );
 
 
-ALTER TABLE public.master_style OWNER TO denvermullets;
-
 --
--- Name: master_style_id_seq; Type: SEQUENCE; Schema: public; Owner: denvermullets
+-- Name: master_style_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.master_style_id_seq
@@ -341,17 +308,15 @@ CREATE SEQUENCE public.master_style_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.master_style_id_seq OWNER TO denvermullets;
-
 --
--- Name: master_style_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: denvermullets
+-- Name: master_style_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.master_style_id_seq OWNED BY public.master_style.id;
 
 
 --
--- Name: master_video; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: master_video; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.master_video (
@@ -364,10 +329,8 @@ CREATE TABLE public.master_video (
 );
 
 
-ALTER TABLE public.master_video OWNER TO denvermullets;
-
 --
--- Name: master_video_id_seq; Type: SEQUENCE; Schema: public; Owner: denvermullets
+-- Name: master_video_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.master_video_id_seq
@@ -379,17 +342,15 @@ CREATE SEQUENCE public.master_video_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.master_video_id_seq OWNER TO denvermullets;
-
 --
--- Name: master_video_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: denvermullets
+-- Name: master_video_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.master_video_id_seq OWNED BY public.master_video.id;
 
 
 --
--- Name: release; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: release; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.release (
@@ -405,10 +366,8 @@ CREATE TABLE public.release (
 );
 
 
-ALTER TABLE public.release OWNER TO denvermullets;
-
 --
--- Name: release_artist; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: release_artist; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.release_artist (
@@ -425,10 +384,8 @@ CREATE TABLE public.release_artist (
 );
 
 
-ALTER TABLE public.release_artist OWNER TO denvermullets;
-
 --
--- Name: release_artist_id_seq; Type: SEQUENCE; Schema: public; Owner: denvermullets
+-- Name: release_artist_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.release_artist_id_seq
@@ -440,17 +397,15 @@ CREATE SEQUENCE public.release_artist_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.release_artist_id_seq OWNER TO denvermullets;
-
 --
--- Name: release_artist_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: denvermullets
+-- Name: release_artist_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.release_artist_id_seq OWNED BY public.release_artist.id;
 
 
 --
--- Name: release_company; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: release_company; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.release_company (
@@ -464,10 +419,8 @@ CREATE TABLE public.release_company (
 );
 
 
-ALTER TABLE public.release_company OWNER TO denvermullets;
-
 --
--- Name: release_company_id_seq; Type: SEQUENCE; Schema: public; Owner: denvermullets
+-- Name: release_company_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.release_company_id_seq
@@ -479,17 +432,15 @@ CREATE SEQUENCE public.release_company_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.release_company_id_seq OWNER TO denvermullets;
-
 --
--- Name: release_company_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: denvermullets
+-- Name: release_company_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.release_company_id_seq OWNED BY public.release_company.id;
 
 
 --
--- Name: release_format; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: release_format; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.release_format (
@@ -502,10 +453,8 @@ CREATE TABLE public.release_format (
 );
 
 
-ALTER TABLE public.release_format OWNER TO denvermullets;
-
 --
--- Name: release_format_id_seq; Type: SEQUENCE; Schema: public; Owner: denvermullets
+-- Name: release_format_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.release_format_id_seq
@@ -517,17 +466,15 @@ CREATE SEQUENCE public.release_format_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.release_format_id_seq OWNER TO denvermullets;
-
 --
--- Name: release_format_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: denvermullets
+-- Name: release_format_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.release_format_id_seq OWNED BY public.release_format.id;
 
 
 --
--- Name: release_genre; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: release_genre; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.release_genre (
@@ -537,10 +484,8 @@ CREATE TABLE public.release_genre (
 );
 
 
-ALTER TABLE public.release_genre OWNER TO denvermullets;
-
 --
--- Name: release_genre_id_seq; Type: SEQUENCE; Schema: public; Owner: denvermullets
+-- Name: release_genre_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.release_genre_id_seq
@@ -552,17 +497,15 @@ CREATE SEQUENCE public.release_genre_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.release_genre_id_seq OWNER TO denvermullets;
-
 --
--- Name: release_genre_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: denvermullets
+-- Name: release_genre_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.release_genre_id_seq OWNED BY public.release_genre.id;
 
 
 --
--- Name: release_identifier; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: release_identifier; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.release_identifier (
@@ -574,10 +517,8 @@ CREATE TABLE public.release_identifier (
 );
 
 
-ALTER TABLE public.release_identifier OWNER TO denvermullets;
-
 --
--- Name: release_identifier_id_seq; Type: SEQUENCE; Schema: public; Owner: denvermullets
+-- Name: release_identifier_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.release_identifier_id_seq
@@ -589,17 +530,15 @@ CREATE SEQUENCE public.release_identifier_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.release_identifier_id_seq OWNER TO denvermullets;
-
 --
--- Name: release_identifier_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: denvermullets
+-- Name: release_identifier_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.release_identifier_id_seq OWNED BY public.release_identifier.id;
 
 
 --
--- Name: release_image; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: release_image; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.release_image (
@@ -610,10 +549,8 @@ CREATE TABLE public.release_image (
 );
 
 
-ALTER TABLE public.release_image OWNER TO denvermullets;
-
 --
--- Name: release_label; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: release_label; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.release_label (
@@ -625,10 +562,8 @@ CREATE TABLE public.release_label (
 );
 
 
-ALTER TABLE public.release_label OWNER TO denvermullets;
-
 --
--- Name: release_label_id_seq; Type: SEQUENCE; Schema: public; Owner: denvermullets
+-- Name: release_label_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.release_label_id_seq
@@ -640,17 +575,15 @@ CREATE SEQUENCE public.release_label_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.release_label_id_seq OWNER TO denvermullets;
-
 --
--- Name: release_label_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: denvermullets
+-- Name: release_label_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.release_label_id_seq OWNED BY public.release_label.id;
 
 
 --
--- Name: release_style; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: release_style; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.release_style (
@@ -659,10 +592,8 @@ CREATE TABLE public.release_style (
 );
 
 
-ALTER TABLE public.release_style OWNER TO denvermullets;
-
 --
--- Name: release_track; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: release_track; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.release_track (
@@ -677,10 +608,8 @@ CREATE TABLE public.release_track (
 );
 
 
-ALTER TABLE public.release_track OWNER TO denvermullets;
-
 --
--- Name: release_track_artist; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: release_track_artist; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.release_track_artist (
@@ -699,10 +628,8 @@ CREATE TABLE public.release_track_artist (
 );
 
 
-ALTER TABLE public.release_track_artist OWNER TO denvermullets;
-
 --
--- Name: release_track_artist_id_seq; Type: SEQUENCE; Schema: public; Owner: denvermullets
+-- Name: release_track_artist_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.release_track_artist_id_seq
@@ -714,17 +641,15 @@ CREATE SEQUENCE public.release_track_artist_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.release_track_artist_id_seq OWNER TO denvermullets;
-
 --
--- Name: release_track_artist_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: denvermullets
+-- Name: release_track_artist_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.release_track_artist_id_seq OWNED BY public.release_track_artist.id;
 
 
 --
--- Name: release_track_id_seq; Type: SEQUENCE; Schema: public; Owner: denvermullets
+-- Name: release_track_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.release_track_id_seq
@@ -736,17 +661,15 @@ CREATE SEQUENCE public.release_track_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.release_track_id_seq OWNER TO denvermullets;
-
 --
--- Name: release_track_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: denvermullets
+-- Name: release_track_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.release_track_id_seq OWNED BY public.release_track.id;
 
 
 --
--- Name: release_video; Type: TABLE; Schema: public; Owner: denvermullets
+-- Name: release_video; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.release_video (
@@ -759,10 +682,8 @@ CREATE TABLE public.release_video (
 );
 
 
-ALTER TABLE public.release_video OWNER TO denvermullets;
-
 --
--- Name: release_video_id_seq; Type: SEQUENCE; Schema: public; Owner: denvermullets
+-- Name: release_video_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.release_video_id_seq
@@ -774,128 +695,440 @@ CREATE SEQUENCE public.release_video_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.release_video_id_seq OWNER TO denvermullets;
-
 --
--- Name: release_video_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: denvermullets
+-- Name: release_video_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.release_video_id_seq OWNED BY public.release_video.id;
 
 
 --
--- Name: artist_namevariation id; Type: DEFAULT; Schema: public; Owner: denvermullets
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.schema_migrations (
+    version character varying NOT NULL
+);
+
+
+--
+-- Name: artist_namevariation id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.artist_namevariation ALTER COLUMN id SET DEFAULT nextval('public.artist_namevariation_id_seq'::regclass);
 
 
 --
--- Name: artist_url id; Type: DEFAULT; Schema: public; Owner: denvermullets
+-- Name: artist_url id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.artist_url ALTER COLUMN id SET DEFAULT nextval('public.artist_url_id_seq'::regclass);
 
 
 --
--- Name: label_url id; Type: DEFAULT; Schema: public; Owner: denvermullets
+-- Name: label_url id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.label_url ALTER COLUMN id SET DEFAULT nextval('public.label_url_id_seq'::regclass);
 
 
 --
--- Name: master_artist id; Type: DEFAULT; Schema: public; Owner: denvermullets
+-- Name: master_artist id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.master_artist ALTER COLUMN id SET DEFAULT nextval('public.master_artist_id_seq'::regclass);
 
 
 --
--- Name: master_genre id; Type: DEFAULT; Schema: public; Owner: denvermullets
+-- Name: master_genre id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.master_genre ALTER COLUMN id SET DEFAULT nextval('public.master_genre_id_seq'::regclass);
 
 
 --
--- Name: master_style id; Type: DEFAULT; Schema: public; Owner: denvermullets
+-- Name: master_style id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.master_style ALTER COLUMN id SET DEFAULT nextval('public.master_style_id_seq'::regclass);
 
 
 --
--- Name: master_video id; Type: DEFAULT; Schema: public; Owner: denvermullets
+-- Name: master_video id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.master_video ALTER COLUMN id SET DEFAULT nextval('public.master_video_id_seq'::regclass);
 
 
 --
--- Name: release_artist id; Type: DEFAULT; Schema: public; Owner: denvermullets
+-- Name: release_artist id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.release_artist ALTER COLUMN id SET DEFAULT nextval('public.release_artist_id_seq'::regclass);
 
 
 --
--- Name: release_company id; Type: DEFAULT; Schema: public; Owner: denvermullets
+-- Name: release_company id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.release_company ALTER COLUMN id SET DEFAULT nextval('public.release_company_id_seq'::regclass);
 
 
 --
--- Name: release_format id; Type: DEFAULT; Schema: public; Owner: denvermullets
+-- Name: release_format id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.release_format ALTER COLUMN id SET DEFAULT nextval('public.release_format_id_seq'::regclass);
 
 
 --
--- Name: release_genre id; Type: DEFAULT; Schema: public; Owner: denvermullets
+-- Name: release_genre id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.release_genre ALTER COLUMN id SET DEFAULT nextval('public.release_genre_id_seq'::regclass);
 
 
 --
--- Name: release_identifier id; Type: DEFAULT; Schema: public; Owner: denvermullets
+-- Name: release_identifier id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.release_identifier ALTER COLUMN id SET DEFAULT nextval('public.release_identifier_id_seq'::regclass);
 
 
 --
--- Name: release_label id; Type: DEFAULT; Schema: public; Owner: denvermullets
+-- Name: release_label id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.release_label ALTER COLUMN id SET DEFAULT nextval('public.release_label_id_seq'::regclass);
 
 
 --
--- Name: release_track id; Type: DEFAULT; Schema: public; Owner: denvermullets
+-- Name: release_track id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.release_track ALTER COLUMN id SET DEFAULT nextval('public.release_track_id_seq'::regclass);
 
 
 --
--- Name: release_track_artist id; Type: DEFAULT; Schema: public; Owner: denvermullets
+-- Name: release_track_artist id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.release_track_artist ALTER COLUMN id SET DEFAULT nextval('public.release_track_artist_id_seq'::regclass);
 
 
 --
--- Name: release_video id; Type: DEFAULT; Schema: public; Owner: denvermullets
+-- Name: release_video id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.release_video ALTER COLUMN id SET DEFAULT nextval('public.release_video_id_seq'::regclass);
 
 
 --
+-- Name: ar_internal_metadata ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.ar_internal_metadata
+    ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
+
+
+--
+-- Name: artist artist_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.artist
+    ADD CONSTRAINT artist_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: label label_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.label
+    ADD CONSTRAINT label_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: master master_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.master
+    ADD CONSTRAINT master_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: release release_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.release
+    ADD CONSTRAINT release_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.schema_migrations
+    ADD CONSTRAINT schema_migrations_pkey PRIMARY KEY (version);
+
+
+--
+-- Name: index_artist_alias_on_artist_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_artist_alias_on_artist_id ON public.artist_alias USING btree (artist_id);
+
+
+--
+-- Name: index_artist_image_on_artist_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_artist_image_on_artist_id ON public.artist_image USING btree (artist_id);
+
+
+--
+-- Name: index_artist_namevariation_on_artist_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_artist_namevariation_on_artist_id ON public.artist_namevariation USING btree (artist_id);
+
+
+--
+-- Name: index_artist_on_name; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_artist_on_name ON public.artist USING btree (name);
+
+
+--
+-- Name: index_artist_url_on_artist_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_artist_url_on_artist_id ON public.artist_url USING btree (artist_id);
+
+
+--
+-- Name: index_group_member_on_group_artist_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_group_member_on_group_artist_id ON public.group_member USING btree (group_artist_id);
+
+
+--
+-- Name: index_group_member_on_member_artist_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_group_member_on_member_artist_id ON public.group_member USING btree (member_artist_id);
+
+
+--
+-- Name: index_label_image_on_label_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_label_image_on_label_id ON public.label_image USING btree (label_id);
+
+
+--
+-- Name: index_label_on_name; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_label_on_name ON public.label USING btree (name);
+
+
+--
+-- Name: index_label_on_parent_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_label_on_parent_id ON public.label USING btree (parent_id);
+
+
+--
+-- Name: index_label_url_on_label_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_label_url_on_label_id ON public.label_url USING btree (label_id);
+
+
+--
+-- Name: index_master_artist_on_artist_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_master_artist_on_artist_id ON public.master_artist USING btree (artist_id);
+
+
+--
+-- Name: index_master_artist_on_master_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_master_artist_on_master_id ON public.master_artist USING btree (master_id);
+
+
+--
+-- Name: index_master_genre_on_master_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_master_genre_on_master_id ON public.master_genre USING btree (master_id);
+
+
+--
+-- Name: index_master_image_on_master_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_master_image_on_master_id ON public.master_image USING btree (master_id);
+
+
+--
+-- Name: index_master_on_title; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_master_on_title ON public.master USING btree (title);
+
+
+--
+-- Name: index_master_style_on_master_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_master_style_on_master_id ON public.master_style USING btree (master_id);
+
+
+--
+-- Name: index_master_video_on_master_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_master_video_on_master_id ON public.master_video USING btree (master_id);
+
+
+--
+-- Name: index_release_artist_on_artist_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_release_artist_on_artist_id ON public.release_artist USING btree (artist_id);
+
+
+--
+-- Name: index_release_artist_on_release_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_release_artist_on_release_id ON public.release_artist USING btree (release_id);
+
+
+--
+-- Name: index_release_company_on_release_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_release_company_on_release_id ON public.release_company USING btree (release_id);
+
+
+--
+-- Name: index_release_format_on_release_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_release_format_on_release_id ON public.release_format USING btree (release_id);
+
+
+--
+-- Name: index_release_genre_on_release_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_release_genre_on_release_id ON public.release_genre USING btree (release_id);
+
+
+--
+-- Name: index_release_identifier_on_release_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_release_identifier_on_release_id ON public.release_identifier USING btree (release_id);
+
+
+--
+-- Name: index_release_image_on_release_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_release_image_on_release_id ON public.release_image USING btree (release_id);
+
+
+--
+-- Name: index_release_label_on_label_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_release_label_on_label_id ON public.release_label USING btree (label_id);
+
+
+--
+-- Name: index_release_label_on_release_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_release_label_on_release_id ON public.release_label USING btree (release_id);
+
+
+--
+-- Name: index_release_on_master_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_release_on_master_id ON public.release USING btree (master_id);
+
+
+--
+-- Name: index_release_on_title; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_release_on_title ON public.release USING btree (title);
+
+
+--
+-- Name: index_release_style_on_release_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_release_style_on_release_id ON public.release_style USING btree (release_id);
+
+
+--
+-- Name: index_release_track_artist_on_artist_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_release_track_artist_on_artist_id ON public.release_track_artist USING btree (artist_id);
+
+
+--
+-- Name: index_release_track_artist_on_release_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_release_track_artist_on_release_id ON public.release_track_artist USING btree (release_id);
+
+
+--
+-- Name: index_release_track_artist_on_track_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_release_track_artist_on_track_id ON public.release_track_artist USING btree (track_id);
+
+
+--
+-- Name: index_release_track_on_release_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_release_track_on_release_id ON public.release_track USING btree (release_id);
+
+
+--
+-- Name: index_release_track_on_track_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_release_track_on_track_id ON public.release_track USING btree (track_id);
+
+
+--
+-- Name: index_release_video_on_release_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_release_video_on_release_id ON public.release_video USING btree (release_id);
+
+
+--
 -- PostgreSQL database dump complete
 --
+
+SET search_path TO "$user", public;
+
+INSERT INTO "schema_migrations" (version) VALUES
+('20260201162647');
 

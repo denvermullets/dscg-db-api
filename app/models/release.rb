@@ -1,5 +1,6 @@
 class Release < ApplicationRecord
   self.table_name = 'release'
+  self.primary_key = :id
 
   belongs_to :master, optional: true
   has_many :release_artists, foreign_key: :release_id

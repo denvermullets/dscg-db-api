@@ -1,5 +1,6 @@
 class Artist < ApplicationRecord
   self.table_name = 'artist'
+  self.primary_key = :id
 
   has_many :artist_aliases, foreign_key: :artist_id
   has_many :artist_images, foreign_key: :artist_id
