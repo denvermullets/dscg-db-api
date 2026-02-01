@@ -4,8 +4,10 @@ source "https://rubygems.org"
 gem "rails", "~> 8.1.2"
 
 gem "bootsnap", require: false
+gem "pagy"
 gem "pg", "~> 1.6.3"
 gem "puma", ">= 7.2.0"
+gem "rack-cors"
 gem "solid_cable"
 gem "solid_cache"
 gem "solid_queue"
@@ -16,7 +18,6 @@ gem "tzinfo-data", platforms: %i[windows jruby]
 # gem "bcrypt", "~> 3.1.7"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
-# gem "rack-cors"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
