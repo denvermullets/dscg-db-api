@@ -1,0 +1,20 @@
+meta {
+  name: Masters Releases w/Format
+  type: http
+  seq: 7
+}
+
+get {
+  url: http://localhost:3000//masters/:id/releases/vinyl
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 84318
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

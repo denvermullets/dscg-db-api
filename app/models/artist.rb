@@ -8,4 +8,6 @@ class Artist < ApplicationRecord
   has_many :artist_urls, foreign_key: :artist_id
   has_many :group_memberships, class_name: 'GroupMember', foreign_key: :member_artist_id
   has_many :members, class_name: 'GroupMember', foreign_key: :group_artist_id
+  has_many :master_artists, foreign_key: :artist_id
+  has_many :masters, through: :master_artists
 end

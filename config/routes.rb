@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   resources :artists, only: %i[index show]
   resources :labels, only: %i[index show]
-  resources :masters, only: %i[index show]
+  resources :masters, only: %i[index show] do
+    get 'releases', to: 'master_releases#index'
+    get 'releases/:media', to: 'master_releases#index'
+  end
   resources :releases, only: %i[index show]
 end

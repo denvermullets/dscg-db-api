@@ -1,6 +1,8 @@
 class ArtistsController < ApplicationController
   def index
-    @pagy, @records = pagy(:offset, Artist.all)
+    artists = Artist.all
+    artists = artists.where('name ILIKE ?', "%#{params[:query]}%") if params[:query].present?
+    @pagy, @records = pagy(:offset, artists)
     render json: { pagy: @pagy.data_hash, data: @records }
   end
 
@@ -11,7 +13,8 @@ class ArtistsController < ApplicationController
       :artist_namevariations,
       :artist_urls,
       :group_memberships,
-      :members
+      :members,
+      :masters
     ).find(params[:id])
 
     render json: artist, include: {
@@ -20,7 +23,8 @@ class ArtistsController < ApplicationController
       artist_namevariations: {},
       artist_urls: {},
       group_memberships: {},
-      members: {}
+      members: {},
+      masters: {}
     }
   end
 end

@@ -13,7 +13,14 @@ class ReleasesController < ApplicationController
   }.freeze
 
   def index
-    @pagy, @records = pagy(:offset, Release.all)
+    releases = Release.all
+    releases = releases.where('title ILIKE ?', "%#{params[:query]}%") if params[:query].present?
+    if params[:format].present?
+      matching_ids = ReleaseFormat.where('name ILIKE ?', params[:format])
+                                  .select(:release_id)
+      releases = releases.where(id: matching_ids)
+    end
+    @pagy, @records = pagy(:offset, releases)
     render json: { pagy: @pagy.data_hash, data: @records }
   end
 

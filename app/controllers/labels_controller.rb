@@ -1,6 +1,8 @@
 class LabelsController < ApplicationController
   def index
-    @pagy, @records = pagy(:offset, Label.all)
+    labels = Label.all
+    labels = labels.where('name ILIKE ?', "%#{params[:query]}%") if params[:query].present?
+    @pagy, @records = pagy(:offset, labels)
     render json: { pagy: @pagy.data_hash, data: @records }
   end
 
