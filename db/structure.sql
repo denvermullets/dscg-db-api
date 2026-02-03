@@ -201,7 +201,8 @@ CREATE TABLE public.master (
     title text NOT NULL,
     year integer,
     main_release integer NOT NULL,
-    data_quality text
+    data_quality text,
+    vinyl boolean DEFAULT false NOT NULL
 );
 
 
@@ -1130,5 +1131,6 @@ CREATE INDEX index_release_video_on_release_id ON public.release_video USING btr
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20260202233548'),
 ('20260201162647');
 

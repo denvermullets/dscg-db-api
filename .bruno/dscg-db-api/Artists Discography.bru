@@ -1,0 +1,20 @@
+meta {
+  name: Artists Discography
+  type: http
+  seq: 9
+}
+
+get {
+  url: http://localhost:3030/artists/:id/discography
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 261351
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
