@@ -1,17 +1,17 @@
 meta {
-  name: Artists show
+  name: Releases
   type: http
-  seq: 3
+  seq: 10
 }
 
 get {
-  url: http://localhost:3000/artists/:artist_id
+  url: http://localhost:3030/releases/:id
   body: none
   auth: inherit
 }
 
 params:path {
-  artist_id: 261351
+  id: 422949
 }
 
 settings {

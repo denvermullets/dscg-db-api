@@ -1,17 +1,17 @@
 meta {
-  name: Masters Releases w/Format
+  name: Masters show
   type: http
-  seq: 7
+  seq: 5
 }
 
 get {
-  url: http://localhost:3000//masters/:id/releases/vinyl
+  url: http://localhost:3030/masters/:master_id
   body: none
   auth: inherit
 }
 
 params:path {
-  id: 84318
+  master_id: 64839
 }
 
 settings {

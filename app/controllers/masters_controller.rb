@@ -1,9 +1,18 @@
 class MastersController < ApplicationController
   def index
     masters = Master.all
-    masters = masters.where('title ILIKE ?', "%#{params[:query]}%") if params[:query].present?
+    if params[:query].present?
+      masters = masters.left_joins(:master_artists)
+                       .where('master.title ILIKE :q OR master_artist.artist_name ILIKE :q', q: "%#{params[:query]}%")
+                       .distinct
+    end
+    masters = masters.where(vinyl: true) if params[:vinyl].present?
     @pagy, @records = pagy(:offset, masters)
-    render json: { pagy: @pagy.data_hash, data: @records }
+    @records = Master.includes(:master_genres, :master_styles).where(id: @records.map(&:id))
+    render json: { pagy: @pagy.data_hash, data: @records.as_json(include: {
+                                                                   master_genres: {},
+                                                                   master_styles: {}
+                                                                 }) }
   end
 
   def show
@@ -11,8 +20,6 @@ class MastersController < ApplicationController
       :master_artists,
       :master_genres,
       :master_styles,
-      :master_images,
-      :master_videos,
       :releases
     ).find(params[:id])
 
@@ -20,8 +27,6 @@ class MastersController < ApplicationController
       master_artists: {},
       master_genres: {},
       master_styles: {},
-      master_images: {},
-      master_videos: {},
       releases: {}
     }
   end

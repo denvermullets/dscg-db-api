@@ -1,0 +1,24 @@
+meta {
+  name: Artists Discography
+  type: http
+  seq: 6
+}
+
+get {
+  url: http://localhost:3030/artists/:id/discography?vinyl=true
+  body: none
+  auth: inherit
+}
+
+params:query {
+  vinyl: true
+}
+
+params:path {
+  id: 261351
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

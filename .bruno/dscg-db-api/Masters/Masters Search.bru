@@ -1,0 +1,21 @@
+meta {
+  name: Masters Search
+  type: http
+  seq: 5
+}
+
+get {
+  url: http://localhost:3030/masters?query=alkaline tr&vinyl=true
+  body: none
+  auth: inherit
+}
+
+params:query {
+  query: alkaline tr
+  vinyl: true
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
