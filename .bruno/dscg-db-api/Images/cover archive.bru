@@ -1,0 +1,25 @@
+meta {
+  name: cover archive
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://coverartarchive.org/release-group/:mb_id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  mb_id: 71794ed3-3763-482b-b24e-7a6adf751aa9
+}
+
+headers {
+  Accept: application/json
+  ~User-Agent: WaxChromatics/0.01 ( waxchromatics.com )
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

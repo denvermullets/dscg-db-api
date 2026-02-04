@@ -1,0 +1,25 @@
+meta {
+  name: MusicBrainz
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://musicbrainz.org/ws/2/release?query=artist:"Pelican" AND release:"Australasia" AND primarytype:album
+  body: none
+  auth: inherit
+}
+
+params:query {
+  query: artist:"Pelican" AND release:"Australasia" AND primarytype:album
+}
+
+headers {
+  User-Agent: WaxChromatics (waxchromatics.com)
+  Accept: application/json
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

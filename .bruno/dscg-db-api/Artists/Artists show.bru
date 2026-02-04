@@ -1,17 +1,17 @@
 meta {
-  name: Artists Discography
+  name: Artists show
   type: http
-  seq: 9
+  seq: 2
 }
 
 get {
-  url: http://localhost:3030/artists/:id/discography
+  url: http://localhost:3030/artists/:artist_id
   body: none
   auth: inherit
 }
 
 params:path {
-  id: 261351
+  artist_id: 261351
 }
 
 settings {

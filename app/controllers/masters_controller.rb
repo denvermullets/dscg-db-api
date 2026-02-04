@@ -20,8 +20,6 @@ class MastersController < ApplicationController
       :master_artists,
       :master_genres,
       :master_styles,
-      :master_images,
-      :master_videos,
       :releases
     ).find(params[:id])
 
@@ -29,8 +27,6 @@ class MastersController < ApplicationController
       master_artists: {},
       master_genres: {},
       master_styles: {},
-      master_images: {},
-      master_videos: {},
       releases: {}
     }
   end
