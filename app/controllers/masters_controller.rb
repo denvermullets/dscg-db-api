@@ -30,4 +30,10 @@ class MastersController < ApplicationController
       releases: {}
     }
   end
+
+  def ingest
+    master = Master.find(params[:id])
+    master.update!(ingested: true)
+    render json: master
+  end
 end
