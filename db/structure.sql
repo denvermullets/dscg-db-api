@@ -34,7 +34,8 @@ CREATE TABLE public.artist (
     name text,
     realname text,
     profile text,
-    data_quality text
+    data_quality text,
+    ingested boolean DEFAULT false NOT NULL
 );
 
 
@@ -202,7 +203,8 @@ CREATE TABLE public.master (
     year integer,
     main_release integer NOT NULL,
     data_quality text,
-    vinyl boolean DEFAULT false NOT NULL
+    vinyl boolean DEFAULT false NOT NULL,
+    ingested boolean DEFAULT false NOT NULL
 );
 
 
@@ -1131,6 +1133,8 @@ CREATE INDEX index_release_video_on_release_id ON public.release_video USING btr
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20260205121628'),
+('20260205115424'),
 ('20260202233548'),
 ('20260201162647');
 

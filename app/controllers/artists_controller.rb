@@ -1,9 +1,15 @@
 class ArtistsController < ApplicationController
   def index
-    artists = Artist.all
+    artists = Artist.where(ingested: false)
     artists = artists.where('name ILIKE ?', "%#{params[:query]}%") if params[:query].present?
     @pagy, @records = pagy(:offset, artists)
     render json: { pagy: @pagy.data_hash, data: @records }
+  end
+
+  def ingest
+    artist = Artist.find(params[:id])
+    artist.update!(ingested: true)
+    render json: artist
   end
 
   def show

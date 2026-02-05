@@ -8,10 +8,14 @@ Rails.application.routes.draw do
   resources :artists, only: %i[index show] do
     member do
       get 'discography', to: 'artist_discography#show'
+      put 'ingest'
     end
   end
   resources :labels, only: %i[index show]
   resources :masters, only: %i[index show] do
+    member do
+      put 'ingest'
+    end
     get 'releases', to: 'master_releases#index'
     get 'releases/:media', to: 'master_releases#index'
   end
