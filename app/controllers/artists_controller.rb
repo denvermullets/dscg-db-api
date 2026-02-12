@@ -1,7 +1,6 @@
 class ArtistsController < ApplicationController
   def index
-    artists = Artist.where(ingested: false)
-    artists = artists.where('name ILIKE ?', "%#{params[:query]}%") if params[:query].present?
+    artists = params[:query].present? ? search_artists(params[:query]) : Artist.where(ingested: false)
     @pagy, @records = pagy(:offset, artists)
     render json: { pagy: @pagy.data_hash, data: @records }
   end
@@ -32,5 +31,23 @@ class ArtistsController < ApplicationController
       members: {},
       masters: {}
     }
+  end
+
+  private
+
+  def search_artists(query)
+    sanitized_query = ActiveRecord::Base.sanitize_sql_like(query)
+    exact_match_sql = "CASE WHEN REGEXP_REPLACE(artist.name, ' \\(\\d+\\)$', '') ILIKE ? THEN 0 ELSE 1 END"
+
+    Artist
+      .where(ingested: false)
+      .where('name ILIKE ?', "%#{sanitized_query}%")
+      .left_joins(:master_artists)
+      .group('artist.id')
+      .select('artist.*', 'COUNT(master_artist.id) as master_count')
+      .order(
+        Arel.sql(ActiveRecord::Base.sanitize_sql_array([exact_match_sql, sanitized_query])),
+        Arel.sql('COUNT(master_artist.id) DESC')
+      )
   end
 end
